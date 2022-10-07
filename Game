@@ -1,0 +1,270 @@
+import random
+
+def hangman0():
+    print("-----------")
+    print("|        |    ")
+    print("|        ")
+    print("|          ")
+    print("|             ")
+    print("|          ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman1():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|             ")
+    print("|              ")
+    print("|          ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman2():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448       ")
+    print("|             ")
+    print("|          ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman3():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448\U0001F455       ")
+    print("|           ")
+    print("|         ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman4():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448\U0001F455\U0001F449       ")
+    print("|              ")
+    print("|          ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman5():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448\U0001F455\U0001F449       ")
+    print("|        \U0001F456      ")
+    print("|          ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman6():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448\U0001F455\U0001F449       ")
+    print("|        \U0001F456      ")
+    print("|       \U0001F45E   ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def hangman7():
+    print("-----------")
+    print("|        |    ")
+    print("|        \U0001F466   ")
+    print("|      \U0001F448\U0001F455\U0001F449       ")
+    print("|        \U0001F456      ")
+    print("|       \U0001F45E\U0001F45E   ")
+    print("|            ")
+    print("---------------------------------")
+    print()
+
+
+def replace():
+    global aplha
+    global enter
+
+    alpha = [
+        "a", "b", "c", "d", "e", "f", "g", "h",
+        "i", "j", "k", "l", "m", "n", "o",
+        "p", "q", "r", "s", "t", "u", "v", "w",
+        "x", "y", "z"
+    ]
+    if guess in alpha:
+        alpha.remove(guess)
+        print(list(alpha))
+
+
+def intro():
+    global yes
+    print("\U0001F58A\U0001F58A\U0001F58A\U0001F58A\U0001F58A\U0001F58A")
+    print("|   |  --  |\  |  /     |\  /|  --  |\  | ")
+    print("|---| |__| | \ | | ---  | \/ | |__| | \ | ")
+    print("|   | |  | |  \|  \__|\ |    | |  | |  \| ")
+    print()
+    print("\U0001F58A\U0001F58A\U0001F58A\U0001F58A\U0001F58A\U0001F58A")
+    print()
+    name = input("Enter you name: ")
+    print()
+    print("Hey ", name, "!")
+    yes = input("Are you ready? (yes/no): ")
+
+
+def words():
+    global words_random
+    global word
+    words_random = [
+        'rainbow', 'computer', 'science', 'octopus',
+        'crocodile', 'mathematics', 'badminton', 'wrestling',
+        'peacock', 'sparrow', 'headphone', 'singapore'
+    ]
+
+    word = random.choice(words_random)
+
+
+def main():
+    global alpha
+    global enter
+    global words_random
+    global word
+    global guess
+    global wanna
+    global wanna2
+    global hang
+
+    words()
+
+    turns = 0
+    guesses = " "
+    a = 1
+    hang = 0
+
+    while turns < 7:
+
+        if a == 1:
+
+            print(
+                "a, b, c, d, e, f, g, h,\ni, j, k, l, m, n, o,\np, q, r, s, t, u, v, w,\nx, y, z"
+            )
+            a = 2
+            print()
+        else:
+            replace()
+            print()
+        if word == 'rainbow':
+            print("NATURAL PHENOMENONU\U0001F30C")
+            print()
+        elif word == 'computer':
+            print("GADGET\U0001F3AE")
+            print()
+        elif word == 'science':
+            print("SUBJECT\U0001F4DA")
+            print()
+        elif word == 'octopus':
+            print("AQUATIC ANIMAL\U0001F30A")
+            print()
+        elif word == 'crocodile':
+            print("ANIMAL\U0001F333")
+            print()
+        elif word == 'mathematics':
+            print("SUBJECT\U0001F4DA")
+            print()
+        elif word == 'badminton':
+            print("SPORT\U0001F3C6")
+            print()
+        elif word == 'wrestling':
+            print("SPORT\U0001F3C6")
+            print()
+        elif word == 'peacock':
+            print("BIRD\U0001F333")
+            print()
+        elif word == 'sparrow':
+            print("BIRD\U0001F333")
+            print()
+        elif word == 'headphone':
+            print("GADGET\U0001F3AE")
+            print()
+        elif word == 'singapore':
+            print("COUNTRY\U0001F5FA")
+            print()
+
+        failed = 0
+
+        for char in word:
+
+            if char in guesses:
+                print(char)
+
+
+            else:
+                print("_")
+                failed += 1
+                # hang += 1
+
+        if failed == 0:
+            print("\U0001F389You Win\U0001F389")
+
+            print("The word is: ", word)
+            print()
+            break
+
+        guess = input("guess a character:")
+        print()
+
+        guesses += guess
+
+        if guess not in word:
+            turns += 1
+            hang += 1
+
+            print("Wrong\U0001F641")
+            print("You have", 7 - turns, 'more guesses')
+            print()
+
+        if hang == 1:
+            hangman1()
+        elif hang == 2:
+            hangman2()
+        elif hang == 3:
+            hangman3()
+        elif hang == 4:
+            hangman4()
+        elif hang == 5:
+            hangman5()
+        elif hang == 6:
+            hangman6()
+        elif hang == 7:
+            hangman7()
+
+            if turns == 7:
+                print("You Loose\U0001F480")
+                wanna = input("WANNA PLAY AGAIN? ")
+
+
+def game():
+    intro()
+    if yes == "yes":
+        hangman0()
+        main()
+        while wanna == "yes" or wanna2 == "yes":
+            main()
+    else:
+        print("Bye")
+
+game()
